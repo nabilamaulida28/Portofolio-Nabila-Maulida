@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portofolio | Nabila Maulida</title>
   <style>
+    /* Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
@@ -27,26 +28,15 @@
       z-index: 100;
     }
 
-    nav h2 {
-      font-size: 1.5rem;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
+    nav h2 { font-size: 1.4rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
     nav ul li a {
       color: white;
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s;
     }
-
-    nav ul li a:hover {
-      color: #bbdefb;
-    }
+    nav ul li a:hover { color: #bbdefb; }
 
     /* Header */
     header {
@@ -60,8 +50,8 @@
     }
 
     header img {
-      width: 150px;
-      height: 150px;
+      width: 140px;
+      height: 140px;
       object-fit: cover;
       border-radius: 50%;
       border: 5px solid #fff;
@@ -70,16 +60,10 @@
       animation: bounceIn 1.5s ease;
     }
 
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-    }
+    header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    header p { font-size: 1.1rem; opacity: 0.9; }
 
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-
+    /* Section */
     section {
       max-width: 900px;
       margin: 25px auto;
@@ -98,22 +82,15 @@
     }
 
     p, li { font-size: 1rem; margin-bottom: 8px; }
-
     ul { list-style: none; padding-left: 0; }
     ul li::before { content: "🔹 "; }
 
-    .tags span {
-      display: inline-block;
+    .highlight {
       background: #e3f2fd;
-      color: #1565c0;
-      padding: 8px 14px;
-      margin: 6px;
-      border-radius: 12px;
-      font-size: 14px;
-      transition: transform 0.3s;
+      padding: 10px 15px;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
-
-    .tags span:hover { transform: scale(1.1); }
 
     footer {
       text-align: center;
@@ -122,13 +99,7 @@
       color: white;
       margin-top: 30px;
     }
-
-    footer a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
+    footer a { color: #fff; text-decoration: none; font-weight: bold; }
     footer a:hover { text-decoration: underline; }
 
     /* Animasi */
@@ -136,12 +107,10 @@
       from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes slideUp {
       from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes bounceIn {
       0% { transform: scale(0.5); opacity: 0; }
       60% { transform: scale(1.2); opacity: 1; }
@@ -162,7 +131,7 @@
   <nav>
     <h2>Nabila</h2>
     <ul>
-      <li><a href="#data">Data Diri</a></li>
+      <li><a href="#tentang">Tentang</a></li>
       <li><a href="#pendidikan">Pendidikan</a></li>
       <li><a href="#cita">Cita-Cita</a></li>
       <li><a href="#kontak">Kontak</a></li>
@@ -173,23 +142,25 @@
   <header>
     <img src="https://via.placeholder.com/150" alt="Foto Profil">
     <h1>🌸 Nabila Maulida 🌸</h1>
-    <p>Pelajar | Calon Programmer | Pecinta Buku & Musik 🎶</p>
+    <p>Pelajar PPLG | Calon Programmer | Pecinta Buku & Musik 🎶</p>
   </header>
 
-  <section id="data">
-    <h2>👩‍💻 Data Diri</h2>
-    <p><b>Nama:</b> Nabila Maulida</p>
-    <p><b>TTL:</b> Bogor, 28 Februari 2010</p>
-    <p><b>Alamat:</b> Ciherang gede RT 01 RW 01</p>
-    <p><b>Status:</b> Pelajar</p>
+  <!-- Tentang Saya -->
+  <section id="tentang">
+    <h2>👩‍💻 Tentang Saya</h2>
+    <p>Halo! Saya <b>Nabila Maulida</b>, siswi jurusan <b>PPLG (Pengembangan Perangkat Lunak dan Gim)</b>.
+    Saya tertarik di bidang programming, web development, dan teknologi.
+    Saya suka belajar hal baru, terutama yang berhubungan dengan IT.</p>
+
+    <div class="highlight">
+      <p><b>Nama:</b> Nabila Maulida</p>
+      <p><b>TTL:</b> Bogor, 28 Februari 2010</p>
+      <p><b>Alamat:</b> Ciherang gede RT 01 RW 01</p>
+      <p><b>Hobi:</b> Membaca & Mendengar Musik 🎶</p>
+    </div>
   </section>
 
-  <section class="tags">
-    <h2>🎵 Hobi</h2>
-    <span>Membaca 📖</span>
-    <span>Mendengar Musik 🎶</span>
-  </section>
-
+  <!-- Pendidikan -->
   <section id="pendidikan">
     <h2>📚 Pendidikan</h2>
     <ul>
@@ -199,29 +170,23 @@
     </ul>
   </section>
 
+  <!-- Cita-cita -->
   <section id="cita">
     <h2>🎯 Cita-Cita</h2>
-    <p>Saya bercita-cita ingin menjadi <b>Programmer</b>.</p>
+    <p>Menjadi seorang <b>Programmer</b> yang bisa menciptakan solusi digital bermanfaat.</p>
   </section>
 
-  <section class="tags">
-    <h2>💡 Kelebihan</h2>
-    <span>Gemar mencoba hal-hal baru</span>
-    <span>Tertarik dengan teknologi</span>
-  </section>
-
-  <section>
-    <h2>⚠️ Kekurangan</h2>
-    <p>Kurang percaya diri & selalu overthinking berlebihan.</p>
-  </section>
-
+  <!-- Harapan & Tujuan -->
   <section>
     <h2>✨ Harapan & Tujuan</h2>
-    <p>Bisa terus berkembang dan menemukan potensi diri yang sesungguhnya & hidup dengan versi terbaik diri sendiri.</p>
+    <p>Terus berkembang, menemukan potensi diri yang sesungguhnya, dan hidup dengan versi terbaik dari diri sendiri.</p>
   </section>
 
+  <!-- Kontak -->
   <footer id="kontak">
     <p>📧 Email: <a href="mailto:maulidanabila044@gmail.com">maulidanabila044@gmail.com</a></p>
+    <p>🖇️ GitHub: <a href="https://github.com/nabilamaulida28" target="_blank">github.com/nabilamaulida28</a></p>
+    <p>© 2025 Dibuat dengan 💙 oleh Nabila Maulida</p>
   </footer>
 
 </body>
