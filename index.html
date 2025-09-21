@@ -5,124 +5,174 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portofolio | Nabila Maulida</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* Reset */
+    * {
       margin: 0;
       padding: 0;
-      background: #f8f9fa;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
       color: #333;
+      line-height: 1.6;
     }
+
     header {
-      background: #4CAF50;
-      color: white;
-      padding: 20px 0;
       text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #2196f3, #6dd5ed);
+      color: white;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      animation: fadeIn 1.5s ease-in-out;
     }
+
     header h1 {
-      margin: 0;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
     }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
     section {
       max-width: 900px;
-      margin: 20px auto;
-      padding: 20px;
+      margin: 30px auto;
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      animation: slideUp 1.2s ease;
     }
+
     h2 {
-      color: #4CAF50;
-      margin-top: 0;
+      color: #2196f3;
+      margin-bottom: 15px;
+      border-left: 6px solid #2196f3;
+      padding-left: 10px;
     }
+
     ul {
-      padding-left: 20px;
+      list-style: none;
+      padding-left: 0;
     }
-    .skills span {
+
+    ul li::before {
+      content: "✨ ";
+    }
+
+    .info p {
+      margin-bottom: 8px;
+    }
+
+    .skills span, .hobi span {
       display: inline-block;
-      background: #e0f7e9;
-      color: #2e7d32;
-      padding: 6px 12px;
-      margin: 4px;
-      border-radius: 6px;
+      background: #e3f2fd;
+      color: #1565c0;
+      padding: 8px 14px;
+      margin: 6px;
+      border-radius: 12px;
       font-size: 14px;
+      transition: transform 0.3s;
     }
+
+    .skills span:hover, .hobi span:hover {
+      transform: scale(1.1);
+    }
+
     footer {
       text-align: center;
-      padding: 15px;
-      background: #333;
+      padding: 20px;
+      background: linear-gradient(135deg, #2196f3, #6dd5ed);
       color: white;
       margin-top: 30px;
     }
-    a {
-      color: #4CAF50;
+
+    footer a {
+      color: #fff;
       text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      section { margin: 20px; padding: 15px; }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Nabila Maulida</h1>
-    <p>🌟 Siswa PPLG | Calon Programmer | Web Developer</p>
+    <h1>🌸 Nabila Maulida 🌸</h1>
+    <p>Pelajar | Calon Programmer | Pecinta Buku & Musik 🎶</p>
   </header>
 
-  <section>
-    <h2>👩‍💻 Tentang Saya</h2>
-    <p>Saya Nabila Maulida, siswi jurusan <b>PPLG (Pengembangan Perangkat Lunak dan Gim)</b> di SMKN 1 Ciomas. Saya tertarik pada pemrograman, web development, dan teknologi. Gemar belajar hal baru serta terus berkembang di dunia IT.</p>
+  <section class="info">
+    <h2>👩‍💻 Data Diri</h2>
+    <p><b>Nama:</b> Nabila Maulida</p>
+    <p><b>TTL:</b> Bogor, 28 Februari 2010</p>
+    <p><b>Alamat:</b> Ciherang gede RT 01 RW 01</p>
+    <p><b>Status:</b> Pelajar</p>
+  </section>
+
+  <section class="hobi">
+    <h2>🎵 Hobi</h2>
+    <span>Membaca 📖</span>
+    <span>Mendengar Musik 🎶</span>
   </section>
 
   <section>
     <h2>📚 Pendidikan</h2>
     <ul>
-      <li>SDN Ciherang 02</li>
-      <li>SMPN 2 Dramaga</li>
-      <li>SMKN 1 Ciomas – PPLG</li>
+      <li>SD : SDN Ciherang 02</li>
+      <li>SMP : SMPN 2 Dramaga</li>
+      <li>SMK : SMKN 1 Ciomas</li>
     </ul>
   </section>
 
   <section>
-    <h2>🛠️ Skill</h2>
-    <div class="skills">
-      <span>HTML</span>
-      <span>CSS</span>
-      <span>JavaScript</span>
-      <span>PHP</span>
-      <span>Java</span>
-      <span>MySQL</span>
-      <span>Figma</span>
-    </div>
+    <h2>🎯 Cita-Cita</h2>
+    <p>Saya bercita-cita ingin menjadi <b>Programmer</b>.</p>
+  </section>
+
+  <section class="skills">
+    <h2>💡 Kelebihan</h2>
+    <span>Gemar mencoba hal-hal baru</span>
+    <span>Tertarik dengan teknologi</span>
   </section>
 
   <section>
-    <h2>📂 Proyek</h2>
-    <ul>
-      <li><b>Website Data Siswa</b> – CRUD dengan PHP & MySQL</li>
-      <li><b>To-Do List App</b> – Aplikasi Android dengan Java & SQLite</li>
-      <li><b>Game 2D Edukasi</b> – Game sederhana untuk anak-anak</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>📜 Sertifikat</h2>
-    <ul>
-      <li>Dicoding – Dasar Pemrograman Java</li>
-      <li>Sololearn – HTML & CSS</li>
-      <li>Workshop UI/UX Design</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>🎵 Hobi</h2>
-    <p>Membaca 📖 | Mendengarkan Musik 🎶</p>
+    <h2>⚠️ Kekurangan</h2>
+    <p>Kurang percaya diri & selalu overthinking berlebihan.</p>
   </section>
 
   <section>
     <h2>✨ Harapan & Tujuan</h2>
-    <p>Terus berkembang, menemukan potensi diri, dan hidup dengan versi terbaik dari diri sendiri.</p>
+    <p>Bisa terus berkembang dan menemukan potensi diri yang sesungguhnya & hidup dengan versi terbaik diri sendiri.</p>
   </section>
 
   <footer>
-    <p>📧 Email: <a href="mailto:emailkamu@gmail.com">emailkamu@gmail.com</a> | 
-       🖇️ GitHub: <a href="https://github.com/usernamekamu" target="_blank">github.com/usernamekamu</a>
-    </p>
+    <p>📧 Email: <a href="mailto:maulidanabila044@gmail.com">maulidanabila044@gmail.com</a></p>
   </footer>
+
 </body>
   </html>
