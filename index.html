@@ -5,28 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portofolio | Nabila Maulida</title>
   <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
       color: #333;
       line-height: 1.6;
     }
 
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1e88e5;
+      padding: 15px 30px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav h2 {
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #bbdefb;
+    }
+
+    /* Header */
     header {
       text-align: center;
-      padding: 50px 20px;
-      background: linear-gradient(135deg, #2196f3, #6dd5ed);
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #1e88e5, #42a5f5);
       color: white;
       border-bottom-left-radius: 50px;
       border-bottom-right-radius: 50px;
       animation: fadeIn 1.5s ease-in-out;
+    }
+
+    header img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+      animation: bounceIn 1.5s ease;
     }
 
     header h1 {
@@ -36,39 +77,32 @@
 
     header p {
       font-size: 1.2rem;
+      opacity: 0.9;
     }
 
     section {
       max-width: 900px;
-      margin: 30px auto;
+      margin: 25px auto;
       background: white;
       padding: 25px;
       border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      animation: slideUp 1.2s ease;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      animation: slideUp 1s ease;
     }
 
     h2 {
-      color: #2196f3;
+      color: #1e88e5;
       margin-bottom: 15px;
-      border-left: 6px solid #2196f3;
+      border-left: 6px solid #1e88e5;
       padding-left: 10px;
     }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
+    p, li { font-size: 1rem; margin-bottom: 8px; }
 
-    ul li::before {
-      content: "✨ ";
-    }
+    ul { list-style: none; padding-left: 0; }
+    ul li::before { content: "🔹 "; }
 
-    .info p {
-      margin-bottom: 8px;
-    }
-
-    .skills span, .hobi span {
+    .tags span {
       display: inline-block;
       background: #e3f2fd;
       color: #1565c0;
@@ -79,14 +113,12 @@
       transition: transform 0.3s;
     }
 
-    .skills span:hover, .hobi span:hover {
-      transform: scale(1.1);
-    }
+    .tags span:hover { transform: scale(1.1); }
 
     footer {
       text-align: center;
       padding: 20px;
-      background: linear-gradient(135deg, #2196f3, #6dd5ed);
+      background: linear-gradient(135deg, #1e88e5, #42a5f5);
       color: white;
       margin-top: 30px;
     }
@@ -97,36 +129,54 @@
       font-weight: bold;
     }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+    footer a:hover { text-decoration: underline; }
 
-    /* Animations */
+    /* Animasi */
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
+      from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes slideUp {
-      from { opacity: 0; transform: translateY(30px); }
+      from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      60% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); }
     }
 
     /* Responsive */
     @media (max-width: 768px) {
+      nav ul { display: none; }
       header h1 { font-size: 2rem; }
-      section { margin: 20px; padding: 15px; }
+      section { margin: 15px; padding: 20px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Navbar -->
+  <nav>
+    <h2>Nabila</h2>
+    <ul>
+      <li><a href="#data">Data Diri</a></li>
+      <li><a href="#pendidikan">Pendidikan</a></li>
+      <li><a href="#cita">Cita-Cita</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
   <header>
+    <img src="https://via.placeholder.com/150" alt="Foto Profil">
     <h1>🌸 Nabila Maulida 🌸</h1>
     <p>Pelajar | Calon Programmer | Pecinta Buku & Musik 🎶</p>
   </header>
 
-  <section class="info">
+  <section id="data">
     <h2>👩‍💻 Data Diri</h2>
     <p><b>Nama:</b> Nabila Maulida</p>
     <p><b>TTL:</b> Bogor, 28 Februari 2010</p>
@@ -134,13 +184,13 @@
     <p><b>Status:</b> Pelajar</p>
   </section>
 
-  <section class="hobi">
+  <section class="tags">
     <h2>🎵 Hobi</h2>
     <span>Membaca 📖</span>
     <span>Mendengar Musik 🎶</span>
   </section>
 
-  <section>
+  <section id="pendidikan">
     <h2>📚 Pendidikan</h2>
     <ul>
       <li>SD : SDN Ciherang 02</li>
@@ -149,12 +199,12 @@
     </ul>
   </section>
 
-  <section>
+  <section id="cita">
     <h2>🎯 Cita-Cita</h2>
     <p>Saya bercita-cita ingin menjadi <b>Programmer</b>.</p>
   </section>
 
-  <section class="skills">
+  <section class="tags">
     <h2>💡 Kelebihan</h2>
     <span>Gemar mencoba hal-hal baru</span>
     <span>Tertarik dengan teknologi</span>
@@ -170,7 +220,7 @@
     <p>Bisa terus berkembang dan menemukan potensi diri yang sesungguhnya & hidup dengan versi terbaik diri sendiri.</p>
   </section>
 
-  <footer>
+  <footer id="kontak">
     <p>📧 Email: <a href="mailto:maulidanabila044@gmail.com">maulidanabila044@gmail.com</a></p>
   </footer>
 
