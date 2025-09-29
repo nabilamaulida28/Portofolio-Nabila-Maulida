@@ -1,17 +1,188 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portofolio - Nabila Maulida</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portofolio — [Nama Lengkap Anda]</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0f1724;           /* very dark */
+      --panel:#111827;        /* panel dark */
+      --text:#e6eef9;         /* light text */
+      --muted:#98a4b6;        /* muted text */
+      --accent:#38bdf8;       /* electric blue */
+      --card:#0b1220;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg, #071427 0%, #0f1724 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding-top:72px; /* navbar space */
+    }
+
+    /* NAVBAR */
+    .nav{
+      position:fixed;
+      top:0; left:0; right:0;
+      height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 20px;
+      z-index:1000;
+      background: linear-gradient(180deg, rgba(11,17,32,0.7), rgba(11,17,32,0.45));
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    .logo{
+      display:flex; gap:12px; align-items:center;
+    }
+    .logo .badge{
+      width:44px; height:44px; border-radius:10px;
+      background:linear-gradient(135deg, var(--accent), #60a5fa);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:700; color:#061226; font-size:18px;
+      box-shadow: 0 6px 18px rgba(56,189,248,0.12), inset 0 -4px 8px rgba(0,0,0,0.12);
+    }
+    .logo span{font-weight:600; color:var(--text)}
+
+    nav ul{
+      list-style:none; display:flex; gap:18px; align-items:center; margin:0;
+    }
+    nav a{
+      color:var(--text); text-decoration:none; font-weight:600;
+      padding:8px 10px; border-radius:8px; transition:all .18s;
+    }
+    nav a:hover{ background: rgba(255,255,255,0.03); color:var(--accent); transform:translateY(-2px) }
+
+    /* hamburger */
+    .hamburger{ display:none; cursor:pointer; width:40px; height:40px; align-items:center; justify-content:center; border-radius:8px }
+    .hamburger svg{ fill:var(--text) }
+
+    /* HERO */
+    .hero{
+      max-width:1100px; margin:20px auto; padding:48px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      display:grid; grid-template-columns: 1fr 360px; gap:28px; align-items:center;
+    }
+    .intro h1{ font-size:clamp(28px,4vw,42px); margin:0 0 12px; line-height:1.05}
+    .intro h1 span{ color:var(--accent) }
+    .intro p{ color:var(--muted); margin-bottom:18px }
+    .hero .cta{ display:flex; gap:12px; align-items:center }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      background:var(--accent); color:#061226; padding:12px 16px; border-radius:10px; font-weight:700; border:none; text-decoration:none;
+      box-shadow: 0 8px 20px rgba(56,189,248,0.12);
+    }
+    .btn.secondary{
+      background:transparent; color:var(--text); border:1px solid rgba(255,255,255,0.04);
+      box-shadow:none; font-weight:600;
+    }
+    .socials a{ color:var(--muted); display:inline-block; margin-right:10px; font-weight:600; text-decoration:none }
+    .profile-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px; padding:18px; text-align:center;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .avatar{
+      width:140px; height:140px; border-radius:50%; overflow:hidden; margin:0 auto 12px;
+      border:6px solid rgba(255,255,255,0.03);
+    }
+    .avatar img{ width:100%; height:100%; object-fit:cover; display:block }
+    .small { color:var(--muted); font-size:14px; margin-top:8px }
+
+    /* sections */
+    .container{ max-width:1100px; margin:28px auto; padding: 0 20px; }
+    section.card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      border-radius:12px; padding:26px; margin-bottom:20px;
+      border:1px solid rgba(255,255,255,0.02);
+      box-shadow: 0 10px 30px rgba(2,6,23,0.5);
+    }
+    h2.section-title{ color:var(--accent); text-align:center; margin-bottom:14px; font-size:22px }
+
+    /* skills */
+    .skills-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:14px; margin-top:12px }
+    .skill-box{ background:var(--glass); padding:14px; border-radius:10px; text-align:center; color:var(--text) }
+    .skill-box h4{ margin-bottom:8px; font-size:15px }
+    .skill-list{ color:var(--muted); font-size:14px }
+
+    /* projects */
+    .project-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-top:12px }
+    .project{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px; overflow:hidden; display:flex; flex-direction:column;
+      border:1px solid rgba(255,255,255,0.03);
+      transition:transform .22s, box-shadow .22s;
+    }
+    .project:hover{ transform: translateY(-6px); box-shadow: 0 20px 40px rgba(2,6,23,0.6) }
+    .project img{ width:100%; height:170px; object-fit:cover; display:block }
+    .project-body{ padding:14px; flex:1; display:flex; flex-direction:column }
+    .project-body h3{ margin:0 0 8px; font-size:18px }
+    .project-body p{ color:var(--muted); font-size:14px; flex:1 }
+    .project-foot{ display:flex; justify-content:space-between; align-items:center; margin-top:12px }
+    .tech{ color:var(--accent); font-weight:600; font-size:13px }
+
+    .project-links{ display:flex; gap:8px }
+    .btn-sm{ font-size:13px; padding:8px 10px; border-radius:8px; }
+
+    /* contact form */
+    form.contact{ display:grid; gap:12px; margin-top:10px }
+    input[type="text"], input[type="email"], textarea{
+      width:100%; padding:12px; background:#071427; border:1px solid rgba(255,255,255,0.03); color:var(--text); border-radius:8px;
+    }
+    textarea{ min-height:120px; resize:vertical }
+    .note{ color:var(--muted); font-size:14px }
+
+    footer{
+      text-align:center; padding:22px; color:var(--muted); margin-top:24px; border-top:1px solid rgba(255,255,255,0.02)
+    }
+    .footer-socials a{ color:var(--muted); margin:0 8px; text-decoration:none; font-weight:600 }
+
+    /* reveal animation */
+    .reveal{ opacity:0; transform:translateY(22px); transition: all .7s cubic-bezier(.2,.9,.3,1) }
+    .reveal.active{ opacity:1; transform:none; }
+
+    /* responsive */
+    @media (max-width: 980px){
+      .hero{ grid-template-columns:1fr 320px }
+      .skills-grid{ grid-template-columns: repeat(2,1fr) }
+      .project-grid{ grid-template-columns: repeat(2, 1fr) }
+    }
+    @media (max-width:700px){
+      .nav nav{ display:none }
+      .hamburger{ display:flex }
+      body{ padding-top:64px }
+      .hero{ grid-template-columns:1fr; padding:30px }
+      .profile-card{ margin-top:8px }
+      .skills-grid{ grid-template-columns:1fr }
+      .project-grid{ grid-template-columns:1fr }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- 🌐 Navbar -->
-  <header class="navbar">
-    <div class="logo">NM</div>
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="logo">
+      <div class="badge">NM</div>
+      <span>[Nama Lengkap Anda]</span>
+    </div>
+
     <nav>
       <ul>
         <li><a href="#about">Tentang Saya</a></li>
@@ -20,105 +191,198 @@
         <li><a href="#contact">Kontak</a></li>
       </ul>
     </nav>
+
+    <button class="hamburger" aria-label="menu" id="hambtn">
+      <!-- simple hamburger icon -->
+      <svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
   </header>
 
-  <!-- 🧑‍💻 Hero Section -->
-  <section class="hero">
-    <h1>Halo, Saya <span>Nabila Maulida</span></h1>
-    <p class="tagline">Calon Web Developer yang bersemangat menciptakan solusi digital kreatif.</p>
-    <div class="buttons">
-      <a href="#projects" class="btn">Lihat Proyek Saya</a>
-      <div class="social-links">
-        <a href="https://github.com/nabilamaulida28" target="_blank">GitHub</a>
-        <a href="#">LinkedIn</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 🙋‍♀️ Tentang Saya -->
-  <section id="about" class="about">
-    <h2>Tentang Saya</h2>
-    <p>
-      Halo! Saya <strong>Nabila Maulida</strong>, siswi jurusan <strong>PPLG</strong> (Pengembangan Perangkat Lunak dan Gim). 
-      Saya tertarik di bidang <strong>programming</strong>, <strong>web development</strong>, dan <strong>teknologi</strong>. 
-      Saya suka belajar hal-hal baru terutama yang berhubungan dengan dunia IT.
-    </p>
-  </section>
-
-  <!-- ⚙️ Skills -->
-  <section id="skills" class="skills">
-    <h2>Skill & Teknologi</h2>
-    <div class="skill-category">
-      <h3>Bahasa Pemrograman</h3>
-      <div class="skill-list">JavaScript · Python · PHP</div>
-    </div>
-    <div class="skill-category">
-      <h3>Framework / Library</h3>
-      <div class="skill-list">React.js · Laravel · Node.js</div>
-    </div>
-    <div class="skill-category">
-      <h3>Tools</h3>
-      <div class="skill-list">Git · Docker · Figma</div>
-    </div>
-  </section>
-
-  <!-- 📂 Proyek -->
-  <section id="projects" class="projects">
-    <h2>Proyek Terbaik Saya</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="https://via.placeholder.com/300x180" alt="Proyek 1" />
-        <h3>Website Portfolio</h3>
-        <p>Website portofolio pribadi dengan desain responsif dan animasi modern.</p>
-        <p class="tech">React · CSS · API</p>
-        <div class="project-links">
-          <a href="#" class="btn">Live Demo</a>
-          <a href="#" class="btn-outline">Lihat Kode</a>
+  <!-- HERO -->
+  <main>
+    <section class="hero container reveal">
+      <div class="intro">
+        <h1>Halo, Saya <span>Nabila Maulida</span></h1>
+        <p class="tagline">Calon Web Developer yang bersemangat menciptakan solusi digital yang kreatif.</p>
+        <div class="cta">
+          <a class="btn" href="#projects">Lihat Proyek Saya</a>
+          <a class="btn secondary" href="https://github.com/nabilamaulida28" target="_blank">GitHub</a>
+          <a class="btn secondary" href="#" target="_blank">LinkedIn</a>
         </div>
       </div>
-      <div class="project-card">
-        <img src="https://via.placeholder.com/300x180" alt="Proyek 2" />
-        <h3>To-Do App</h3>
-        <p>Aplikasi to-do list interaktif yang menyimpan data secara real-time.</p>
-        <p class="tech">JavaScript · Node.js</p>
-        <div class="project-links">
-          <a href="#" class="btn">Live Demo</a>
-          <a href="#" class="btn-outline">Lihat Kode</a>
+
+      <aside class="profile-card">
+        <div class="avatar">
+          <!-- ganti src dengan foto kamu -->
+          <img src="https://via.placeholder.com/400x400.png?text=Foto+Profil" alt="Foto profil">
+        </div>
+        <div style="font-weight:700">Nabila Maulida</div>
+        <div class="small">Pelajar PPLG — Calon Programmer</div>
+        <div class="small" style="margin-top:8px">Membaca · Mendengar Musik</div>
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="card container reveal">
+      <h2 class="section-title">Tentang Saya</h2>
+      <p>
+        Halo! Saya <strong>Nabila Maulida</strong>, siswi jurusan <strong>PPLG (Pengembangan Perangkat Lunak dan Gim)</strong>.
+        Saya tertarik di bidang <strong>programming</strong>, <strong>web development</strong>, dan <strong>teknologi</strong>.
+        Saya suka belajar hal baru, terutama yang berhubungan dengan IT.
+      </p>
+
+      <div style="margin-top:14px; display:grid; grid-template-columns:repeat(2,1fr); gap:12px">
+        <div style="background:var(--panel); padding:12px; border-radius:10px">
+          <div style="color:var(--muted); font-size:13px">Nama</div>
+          <div style="font-weight:700">Nabila Maulida</div>
+        </div>
+        <div style="background:var(--panel); padding:12px; border-radius:10px">
+          <div style="color:var(--muted); font-size:13px">TTL</div>
+          <div style="font-weight:700">Bogor, 28 Februari 2010</div>
+        </div>
+        <div style="background:var(--panel); padding:12px; border-radius:10px">
+          <div style="color:var(--muted); font-size:13px">Alamat</div>
+          <div style="font-weight:700">Ciherang gede RT 01 RW 01</div>
+        </div>
+        <div style="background:var(--panel); padding:12px; border-radius:10px">
+          <div style="color:var(--muted); font-size:13px">Hobi</div>
+          <div style="font-weight:700">Membaca & Mendengar Musik</div>
         </div>
       </div>
-      <div class="project-card">
-        <img src="https://via.placeholder.com/300x180" alt="Proyek 3" />
-        <h3>Weather App</h3>
-        <p>Aplikasi cuaca dengan API eksternal yang menampilkan data real-time.</p>
-        <p class="tech">HTML · CSS · API</p>
-        <div class="project-links">
-          <a href="#" class="btn">Live Demo</a>
-          <a href="#" class="btn-outline">Lihat Kode</a>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="card container reveal">
+      <h2 class="section-title">Skill & Teknologi</h2>
+      <div class="skills-grid">
+        <div class="skill-box">
+          <h4>Bahasa Pemrograman</h4>
+          <div class="skill-list">JavaScript · Python · PHP · Java</div>
+        </div>
+        <div class="skill-box">
+          <h4>Framework / Library</h4>
+          <div class="skill-list">React.js · Laravel · Node.js</div>
+        </div>
+        <div class="skill-box">
+          <h4>Tools</h4>
+          <div class="skill-list">Git · Docker · Figma · VS Code</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 📬 Kontak -->
-  <section id="contact" class="contact">
-    <h2>Kontak Saya</h2>
-    <p>Email: <a href="mailto:maulidanabila044@gmail.com">maulidanabila044@gmail.com</a></p>
-    <form>
-      <input type="text" placeholder="Nama Anda" required />
-      <input type="email" placeholder="Email Anda" required />
-      <textarea placeholder="Pesan Anda..." required></textarea>
-      <button type="submit" class="btn">Kirim Pesan</button>
-    </form>
-  </section>
+    <!-- PROJECTS -->
+    <section id="projects" class="card container reveal">
+      <h2 class="section-title">Proyek Terbaik Saya</h2>
 
-  <!-- 📍 Footer -->
-  <footer>
-    <p>© 2025 Nabila Maulida | Dibuat dengan ❤️ & semangat belajar</p>
-    <div class="footer-links">
-      <a href="https://github.com/nabilamaulida28" target="_blank">GitHub</a> ·
-      <a href="#">LinkedIn</a>
-    </div>
-  </footer>
+      <div class="project-grid">
+        <!-- card 1 -->
+        <article class="project">
+          <img src="https://via.placeholder.com/600x360?text=Proyek+1" alt="Proyek 1 screenshot">
+          <div class="project-body">
+            <h3>Website Portofolio</h3>
+            <p>Website portofolio pribadi dengan desain responsif, animasi halus, dan dokumentasi proyek.</p>
+            <div class="project-foot">
+              <div class="tech">React · CSS · Hosting</div>
+              <div class="project-links">
+                <a class="btn btn-sm" href="#" target="_blank">Live Demo</a>
+                <a class="btn btn-sm btn-outline" href="#" target="_blank" style="border:1px solid rgba(56,189,248,0.12); background:transparent; color:var(--muted)">Lihat Kode</a>
+              </div>
+            </div>
+          </div>
+        </article>
 
+        <!-- card 2 -->
+        <article class="project">
+          <img src="https://via.placeholder.com/600x360?text=Proyek+2" alt="Proyek 2 screenshot">
+          <div class="project-body">
+            <h3>To-Do List App</h3>
+            <p>Aplikasi Android/WEB sederhana untuk manajemen tugas harian dengan penyimpanan lokal.</p>
+            <div class="project-foot">
+              <div class="tech">Java · SQLite</div>
+              <div class="project-links">
+                <a class="btn btn-sm" href="#" target="_blank">Live Demo</a>
+                <a class="btn btn-sm btn-outline" href="#" target="_blank" style="border:1px solid rgba(56,189,248,0.12); background:transparent; color:var(--muted)">Lihat Kode</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- card 3 -->
+        <article class="project">
+          <img src="https://via.placeholder.com/600x360?text=Proyek+3" alt="Proyek 3 screenshot">
+          <div class="project-body">
+            <h3>Weather App</h3>
+            <p>Aplikasi yang menampilkan cuaca realtime menggunakan API eksternal dan tampilan rapi.</p>
+            <div class="project-foot">
+              <div class="tech">HTML · CSS · API</div>
+              <div class="project-links">
+                <a class="btn btn-sm" href="#" target="_blank">Live Demo</a>
+                <a class="btn btn-sm btn-outline" href="#" target="_blank" style="border:1px solid rgba(56,189,248,0.12); background:transparent; color:var(--muted)">Lihat Kode</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card container reveal">
+      <h2 class="section-title">Kontak</h2>
+      <p class="note">Email: <a href="mailto:maulidanabila044@gmail.com" style="color:var(--accent)">maulidanabila044@gmail.com</a></p>
+
+      <form class="contact" id="contactForm">
+        <input type="text" id="name" placeholder="Nama Anda" required>
+        <input type="email" id="email" placeholder="Email Anda" required>
+        <textarea id="message" placeholder="Pesan Anda..." required></textarea>
+        <button class="btn" type="submit">Kirim Pesan</button>
+        <div id="formStatus" class="note" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> [Nama Lengkap Anda] — Dibuat dengan ❤️</div>
+      <div class="footer-socials" style="margin-top:8px">
+        <a href="https://github.com/nabilamaulida28" target="_blank">GitHub</a> · <a href="#" target="_blank">LinkedIn</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    // mobile menu toggle (simple)
+    const hambtn = document.getElementById('hambtn');
+    hambtn && hambtn.addEventListener('click', ()=> {
+      const nav = document.querySelector('nav');
+      if(!nav) return;
+      if(nav.style.display === 'block') nav.style.display = '';
+      else nav.style.display = 'block';
+    });
+
+    // reveal on scroll using IntersectionObserver
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=> {
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('active');
+      });
+    }, {threshold: 0.12});
+    reveals.forEach(s => io.observe(s));
+
+    // contact form handler (demo)
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    form && form.addEventListener('submit', (ev)=>{
+      ev.preventDefault();
+      // simple demo feedback. In real site, connect to backend/email service.
+      const name = document.getElementById('name').value.trim();
+      status.textContent = 'Mengirim...';
+      setTimeout(()=>{
+        status.textContent = `Terima kasih ${name || ''}, pesanmu sudah tercatat (demo).`;
+        form.reset();
+      }, 800);
+    });
+
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
-          </html>
+                </html>
