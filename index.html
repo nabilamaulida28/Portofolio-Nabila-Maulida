@@ -1,194 +1,124 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio | Nabila Maulida</title>
-  <style>
-    /* Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #89f7fe, #66a6ff);
-      color: #333;
-      line-height: 1.6;
-    }
-
-    /* Navbar */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #1e88e5;
-      padding: 15px 30px;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    nav h2 { font-size: 1.4rem; }
-    nav ul { list-style: none; display: flex; gap: 20px; }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav ul li a:hover { color: #bbdefb; }
-
-    /* Header */
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #1e88e5, #42a5f5);
-      color: white;
-      border-bottom-left-radius: 50px;
-      border-bottom-right-radius: 50px;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-
-    header img {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid #fff;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-      margin-bottom: 20px;
-      animation: bounceIn 1.5s ease;
-    }
-
-    header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    header p { font-size: 1.1rem; opacity: 0.9; }
-
-    /* Section */
-    section {
-      max-width: 900px;
-      margin: 25px auto;
-      background: white;
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      animation: slideUp 1s ease;
-    }
-
-    h2 {
-      color: #1e88e5;
-      margin-bottom: 15px;
-      border-left: 6px solid #1e88e5;
-      padding-left: 10px;
-    }
-
-    p, li { font-size: 1rem; margin-bottom: 8px; }
-    ul { list-style: none; padding-left: 0; }
-    ul li::before { content: "🔹 "; }
-
-    .highlight {
-      background: #e3f2fd;
-      padding: 10px 15px;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: linear-gradient(135deg, #1e88e5, #42a5f5);
-      color: white;
-      margin-top: 30px;
-    }
-    footer a { color: #fff; text-decoration: none; font-weight: bold; }
-    footer a:hover { text-decoration: underline; }
-
-    /* Animasi */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes bounceIn {
-      0% { transform: scale(0.5); opacity: 0; }
-      60% { transform: scale(1.2); opacity: 1; }
-      100% { transform: scale(1); }
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav ul { display: none; }
-      header h1 { font-size: 2rem; }
-      section { margin: 15px; padding: 20px; }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio - Nabila Maulida</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav>
-    <h2>Nabila</h2>
-    <ul>
-      <li><a href="#tentang">Tentang</a></li>
-      <li><a href="#pendidikan">Pendidikan</a></li>
-      <li><a href="#cita">Cita-Cita</a></li>
-      <li><a href="#kontak">Kontak</a></li>
-    </ul>
-  </nav>
-
-  <!-- Header -->
-  <header>
-    <img src="https://via.placeholder.com/150" alt="Foto Profil">
-    <h1>Nabila Maulida</h1>
-    <p>Web Developer | Programmer | Freelancer</p>
+  <!-- 🌐 Navbar -->
+  <header class="navbar">
+    <div class="logo">NM</div>
+    <nav>
+      <ul>
+        <li><a href="#about">Tentang Saya</a></li>
+        <li><a href="#skills">Skill</a></li>
+        <li><a href="#projects">Proyek</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Tentang Saya -->
-  <section id="tentang">
-    <h2>👩‍💻 Tentang Saya</h2>
-    <p>Halo! Saya <b>Nabila Maulida</b>, siswi jurusan <b>PPLG (Pengembangan Perangkat Lunak dan Gim)</b>.
-    Saya tertarik di bidang programming, web development, dan teknologi.
-    Saya suka belajar hal baru, terutama yang berhubungan dengan IT.</p>
-
-    <div class="highlight">
-      <p><b>Nama:</b> Nabila Maulida</p>
-      <p><b>TTL:</b> Bogor, 28 Februari 2010</p>
-      <p><b>Alamat:</b> Ciherang gede RT 01 RW 01</p>
-      <p><b>Sekolah:</b> SMKN 1 CIOMAS<p>
-      <p><b>Hobi:</b> Membaca & Mendengar Musik</p>
+  <!-- 🧑‍💻 Hero Section -->
+  <section class="hero">
+    <h1>Halo, Saya <span>Nabila Maulida</span></h1>
+    <p class="tagline">Calon Web Developer yang bersemangat menciptakan solusi digital kreatif.</p>
+    <div class="buttons">
+      <a href="#projects" class="btn">Lihat Proyek Saya</a>
+      <div class="social-links">
+        <a href="https://github.com/nabilamaulida28" target="_blank">GitHub</a>
+        <a href="#">LinkedIn</a>
+      </div>
     </div>
   </section>
 
-  <!-- Pendidikan -->
-  <section id="pendidikan">
-    <h2>📚 Pendidikan</h2>
-    <ul>
-      <li>SD : SDN Ciherang 02</li>
-      <li>SMP : SMPN 2 Dramaga</li>
-      <li>SMK : SMKN 1 Ciomas</li>
-    </ul>
+  <!-- 🙋‍♀️ Tentang Saya -->
+  <section id="about" class="about">
+    <h2>Tentang Saya</h2>
+    <p>
+      Halo! Saya <strong>Nabila Maulida</strong>, siswi jurusan <strong>PPLG</strong> (Pengembangan Perangkat Lunak dan Gim). 
+      Saya tertarik di bidang <strong>programming</strong>, <strong>web development</strong>, dan <strong>teknologi</strong>. 
+      Saya suka belajar hal-hal baru terutama yang berhubungan dengan dunia IT.
+    </p>
   </section>
 
-  <!-- Cita-cita -->
-  <section id="cita">
-    <h2>🎯 Cita-Cita</h2>
-    <p>Menjadi seorang <b>Programmer</b> yang bisa menciptakan solusi digital bermanfaat.</p>
+  <!-- ⚙️ Skills -->
+  <section id="skills" class="skills">
+    <h2>Skill & Teknologi</h2>
+    <div class="skill-category">
+      <h3>Bahasa Pemrograman</h3>
+      <div class="skill-list">JavaScript · Python · PHP</div>
+    </div>
+    <div class="skill-category">
+      <h3>Framework / Library</h3>
+      <div class="skill-list">React.js · Laravel · Node.js</div>
+    </div>
+    <div class="skill-category">
+      <h3>Tools</h3>
+      <div class="skill-list">Git · Docker · Figma</div>
+    </div>
   </section>
 
-  <!-- Harapan & Tujuan -->
-  <section>
-    <h2>✨ Harapan & Tujuan</h2>
-    <p>Terus berkembang, menemukan potensi diri yang sesungguhnya, dan hidup dengan versi terbaik dari diri sendiri.</p>
+  <!-- 📂 Proyek -->
+  <section id="projects" class="projects">
+    <h2>Proyek Terbaik Saya</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x180" alt="Proyek 1" />
+        <h3>Website Portfolio</h3>
+        <p>Website portofolio pribadi dengan desain responsif dan animasi modern.</p>
+        <p class="tech">React · CSS · API</p>
+        <div class="project-links">
+          <a href="#" class="btn">Live Demo</a>
+          <a href="#" class="btn-outline">Lihat Kode</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x180" alt="Proyek 2" />
+        <h3>To-Do App</h3>
+        <p>Aplikasi to-do list interaktif yang menyimpan data secara real-time.</p>
+        <p class="tech">JavaScript · Node.js</p>
+        <div class="project-links">
+          <a href="#" class="btn">Live Demo</a>
+          <a href="#" class="btn-outline">Lihat Kode</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x180" alt="Proyek 3" />
+        <h3>Weather App</h3>
+        <p>Aplikasi cuaca dengan API eksternal yang menampilkan data real-time.</p>
+        <p class="tech">HTML · CSS · API</p>
+        <div class="project-links">
+          <a href="#" class="btn">Live Demo</a>
+          <a href="#" class="btn-outline">Lihat Kode</a>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Kontak -->
-  <footer id="kontak">
-    <p>📧 Email: <a href="mailto:maulidanabila044@gmail.com">maulidanabila044@gmail.com</a></p>
-    <p>🖇️ GitHub: <a href="https://github.com/nabilamaulida28" target="_blank">github.com/nabilamaulida28</a></p>
-    <p>© 2025 Dibuat dengan 💙 oleh Nabila Maulida</p>
+  <!-- 📬 Kontak -->
+  <section id="contact" class="contact">
+    <h2>Kontak Saya</h2>
+    <p>Email: <a href="mailto:maulidanabila044@gmail.com">maulidanabila044@gmail.com</a></p>
+    <form>
+      <input type="text" placeholder="Nama Anda" required />
+      <input type="email" placeholder="Email Anda" required />
+      <textarea placeholder="Pesan Anda..." required></textarea>
+      <button type="submit" class="btn">Kirim Pesan</button>
+    </form>
+  </section>
+
+  <!-- 📍 Footer -->
+  <footer>
+    <p>© 2025 Nabila Maulida | Dibuat dengan ❤️ & semangat belajar</p>
+    <div class="footer-links">
+      <a href="https://github.com/nabilamaulida28" target="_blank">GitHub</a> ·
+      <a href="#">LinkedIn</a>
+    </div>
   </footer>
 
 </body>
-  </html>
+          </html>
